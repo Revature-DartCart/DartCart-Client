@@ -4,6 +4,7 @@ import { fetchCompetitorProducts, selectCompetitorProducts } from "../common/Com
 import { selectShopProductById } from "../common/ShopProductSlice"
 import { ShopProduct } from "./models";
 import "./ShopProduct.css"
+import Logo from "../imgs/boldDart.jpg"
 
 interface SellerProduct {
     Seller: number//product ID
@@ -38,7 +39,8 @@ export function CompetingSellers ({Seller}: SellerProduct) {
                     <div className="SellerContainer">
                         <div className="SellerWindow">
 
-                            <div className="SellerLogo"></div>
+                            
+                            <img className="SellerLogo"src={Logo}></img>
 
                         </div>
 
@@ -55,7 +57,11 @@ export function CompetingSellers ({Seller}: SellerProduct) {
                             </div>
 
                         </div>
-                        <button className="btn btn-primary" >Add to Cart</button>
+                        {
+                            //onClick={(e) => handleAddtoCard(e)}
+                        }
+                        <button className="btn btn-primary" value={competitors.shop_product_id} >Add to card</button>
+
                     </div>
                     
                 )
