@@ -1,13 +1,12 @@
-import Header from "./Header";
+
 import axios from "axios";
-import { ShopProduct } from "./models"
-import { ShopProductCard } from "./ShopProductCard";
+import { ShopProduct } from "../../common/models"
+import  ShopProductCard  from "../product-details/ShopProductCard";
 import { Link } from "react-router-dom";
-import "./Display.css"
+import "./display.css"
 import { useEffect, useState } from "react";
-import Footer from "./Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchShopProducts, selectShopProducts } from "../common/ShopProductSlice";
+import { fetchShopProducts, selectShopProducts } from "../../common/slices/shopProductSlice";
 
 
 const Display = () => {
@@ -47,7 +46,6 @@ const Display = () => {
     return (
 
         <>
-        <Header></Header>
             <div className="">
 
             </div>
@@ -64,7 +62,6 @@ const Display = () => {
             :   ""
            }
            </div>
-        <Footer></Footer>
         </>
         
     )

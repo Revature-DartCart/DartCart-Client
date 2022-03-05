@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCompetitorProducts, selectCompetitorProducts } from "../common/CompetitorsSlice";
-import { selectShopProductById } from "../common/ShopProductSlice"
-import { ShopProduct } from "./models";
-import "./ShopProduct.css"
-import Logo from "../imgs/boldDart.jpg"
+import { fetchCompetitorProducts, selectCompetitorProducts } from "../../common/slices/competitorsSlice";
+import { selectShopProductById } from "../../common/slices/shopProductSlice"
+import { ShopProduct } from "../../common/models";
+import "./competingSellers.css"
+import Logo from "../../imgs/boldDart.jpg"
 
 interface SellerProduct {
     Seller: number//product ID
@@ -27,6 +27,9 @@ export function CompetingSellers ({Seller}: SellerProduct) {
         dispatch(fetchCompetitorProducts(Seller)) // places return value into REDUX global state
     }, [])
 
+    function handleAddtoCard (event) {
+
+    }
 
     return (
         
@@ -57,10 +60,8 @@ export function CompetingSellers ({Seller}: SellerProduct) {
                             </div>
 
                         </div>
-                        {
-                            //onClick={(e) => handleAddtoCard(e)}
-                        }
-                        <button className="btn btn-primary" value={competitors.shop_product_id} >Add to card</button>
+                       
+                        <button className="btn btn-primary" value={competitors.shop_product_id} onClick={(e) => handleAddtoCard(e)} >Add to card</button>
 
                     </div>
                     
@@ -69,8 +70,6 @@ export function CompetingSellers ({Seller}: SellerProduct) {
 
             }) || ""
             }
-
-            
 
             </div>
          
