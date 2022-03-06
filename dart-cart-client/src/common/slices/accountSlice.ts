@@ -67,10 +67,10 @@ export default accountSlice.reducer;
 export const { selectAll: selectUsers, selectById: selectUserById } =
   accountAdapter.getSelectors((state: any) => state.users);
 
-export const selectStatus = createSelector(
-  (state: RootState) => state.accounts,
-  (accounts) => accounts.status
-);
+// export const selectStatus = createSelector(
+//   (state: RootState) => state.accounts,
+//   (accounts) => accounts.status
+// );
 
 // Async functionality
 export const saveUser = createAsyncThunk(

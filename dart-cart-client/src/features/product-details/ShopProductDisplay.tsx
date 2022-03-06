@@ -40,6 +40,33 @@ const ShopProductDisplay = () => {
     width: "40%",
   };
 
+  var axios = require("axios").default;
+
+  async function thumbnail (name: string) {
+
+    var options = {
+      method: 'GET',
+      url: 'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI',
+      params: {q: name, pageNumber: '1', pageSize: '1', autoCorrect: 'true'},
+      headers: {
+        'x-rapidapi-host': 'contextualwebsearch-websearch-v1.p.rapidapi.com',
+        //my API KEY
+        'x-rapidapi-key': 'ebb3d6a9f7mshb5df2130626bb61p1ff74ajsn6c0cd15383aa'
+      }
+    };
+
+    let response = await axios.request(options).then(function (response) {
+      console.log(response.data);
+    }).catch(function (error) {
+      console.error(error);
+    });
+
+    let thumbnail = await response.data[0].thumbnail
+
+    return thumbnail
+  }
+      
+
   function ImgSplice (categories: [{id: number, name: string}]) {
 
     let newImg = Object.assign({}, ImgStyleBase)
@@ -97,9 +124,14 @@ const ShopProductDisplay = () => {
 
           <div className="ProductDescriptionPocket">
             <p>{ReduxShopProducts?.product.description}</p>
+            {
+              // ReduxShopProducts &&
+              // <img src={thumbnail(ReduxShopProducts?.product.name!)}></img>
+            }
+            
           </div>
         </div>
-        <CompetingSellers Seller={1}></CompetingSellers>
+        <CompetingSellers Seller={ReduxShopProducts?.shop_product_id!}></CompetingSellers>
       </div>
 
       <Footer></Footer>

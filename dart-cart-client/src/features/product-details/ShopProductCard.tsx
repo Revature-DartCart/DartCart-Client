@@ -26,7 +26,7 @@ export default function ShopProductCard({ ShopProduct }: IShopProductCard) {
           <Link
             id="Chosen Shop Product"
             className="btn  stretched-link"
-            to={`/ShopProduct/${ShopProduct.product.product_id}`}
+            to={`/shop/${ShopProduct.shop_product_id}`}
           ></Link>
         </div>
       </div>
