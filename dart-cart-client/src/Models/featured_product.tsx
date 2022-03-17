@@ -11,7 +11,7 @@ export default function Featured_Product(props:any) {
         <Link
             id="Chosen Shop Product"
             className="btn  stretched-link"
-            to={`/FeatureProduct/${props?.id}` || ""}  
+            to={`/shop-product/${props?.id}` || ""}  
           ></Link>
        {/* //  image
         // price
