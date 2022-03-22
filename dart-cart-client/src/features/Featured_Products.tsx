@@ -28,7 +28,7 @@ export default function Featured_Products() {
 
     return (<>
         {anyThing.map(elem => {
-           return <Featured_Product productName={elem.product.name} id="1" imageUrl="https://picsum.photos/100/100?random=1" />
+           return <Featured_Product productName={elem.product.name} id={elem.product.id} description={elem.product.description} imageUrl="https://picsum.photos/100/100?random=1" />
         }
         )}
 
