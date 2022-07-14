@@ -116,3 +116,27 @@ input[type="checkbox"]{
     color: var(--text-primary);
     background-color: var(--background);
 }
+
+.card-title {
+    color: var(--text-primary);
+    background-color: var(--background);
+}
+
+.card-text {
+    color: var(--text-primary);
+    background-color: var(--background);
+}
+
+.footer-info {
+    color: var(--text-primary);
+    background-color: var(--background);
+}
+.testIMG{
+    object-fit: contain;
+    max-height: 10rem;
+}
+
+.profile {
+    height:48px;
+    width:48px;
+}

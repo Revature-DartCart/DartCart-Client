@@ -19,7 +19,6 @@ export const fetchCompetitorProducts = createAsyncThunk(
     const response = await axios.get(MOCK_SERVER + "sellers/" + shopProductId, {
       headers: authHeader(),
     });
-
     return response.data;
   }
 );
@@ -43,11 +42,21 @@ const CPSlice = createSlice({
         const newEntities = {};
         var i = 0;
         state.ids = [];
-        action.payload.forEach((CompetitorProduct) => {
-          state.ids[i++] = CompetitorProduct.id;
-          newEntities[CompetitorProduct.id] = CompetitorProduct;
-        });
-        state.entities = newEntities;
+        if (action.payload) {
+          action.payload.forEach((CompetitorProduct) => {
+            state.ids[i] = i;
+            newEntities[i++] = CompetitorProduct;
+          });
+          state.entities = newEntities;
+          state.status = "idle";
+        }
+        else {
+          state.entities = {};
+          state.status = "idle";
+        }
+      })
+      .addCase(fetchCompetitorProducts.rejected, (state) => {
+        state.entities = {};
         state.status = "idle";
       });
   },

@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../common/hooks";
 import { loginUser } from "../../common/slices/authSlice";
 
+import "./protect_btn.css";
+
 export function UserRegister() {
   const currentDate = Date.now();
   const [username, setUsername] = useState("");
@@ -32,6 +34,8 @@ export function UserRegister() {
     phone: "",
     location: "",
     registrationDate: 0,
+    aboutMe : "",
+    imageURL: ""
   };
 
   // BASIC input validation: no empty fields, passwords must match, formatting requirements
@@ -231,6 +235,7 @@ export function UserRegister() {
                   </div>
 
                   <button
+                    id="protect_btn"
                     className="btn btn-success btn-lg btn-block"
                     onClick={createUser}
                   >

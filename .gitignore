@@ -1,8 +1,11 @@
 dart-cart-client/node_modules/*
 dart-cart-client/node_modules/
+dart-cart-client/.env
 
 *.orig
-
-*/node_modules/*
+package-lock.json
+package.json
+/node_modules/*
 .settings
 .project
+.github
